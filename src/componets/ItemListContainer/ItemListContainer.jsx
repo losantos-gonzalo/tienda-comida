@@ -1,6 +1,6 @@
 import { Flex, Heading } from '@chakra-ui/react'
 import React from 'react'
-import '../ItemListContainer/ItemListContainer.css'
+import './ItemListContainer.css'
 
 const ItemListContainer = () => {
 
