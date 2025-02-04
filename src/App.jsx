@@ -1,16 +1,18 @@
+import { useEffect } from "react";
 import ItemListContainer from "./componets/ItemListContainer/ItemListContainer";
 import NavBar from "./componets/NavBar/NavBar";
+import { Box } from "@chakra-ui/react";
+import ItemCount from "./componets/ItemCount/ItemCount";
 
 function App() {
 
   return (
-    <div>
+    <Box>
       <NavBar />
       <ItemListContainer />
-    </div>
+    </Box>
   );
 }
 
-export default App;
 
-//1.47
+export default App;
