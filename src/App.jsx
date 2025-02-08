@@ -2,7 +2,6 @@ import { useEffect } from "react";
 import ItemListContainer from "./componets/ItemListContainer/ItemListContainer";
 import NavBar from "./componets/NavBar/NavBar";
 import { Box } from "@chakra-ui/react";
-import ItemCount from "./componets/ItemCount/ItemCount";
 
 function App() {
 

@@ -1,7 +1,7 @@
 .cajita {
+    flex-direction: column;
     border: 2px solid red;
     width: 8rem;
-    margin-left: auto;
-    margin-right: auto;
+    height: 4rem;
     margin-top: 1rem;
 }

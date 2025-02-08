@@ -22,5 +22,3 @@ const ItemListContainer = () => {
 }
 
 export default ItemListContainer
-
-// 1.38

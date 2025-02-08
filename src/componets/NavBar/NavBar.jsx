@@ -16,7 +16,9 @@ const NavBar = () => {
 
     return (
         <Flex className='navbar'>
-            <Heading>Logo</Heading>
+            <Heading className='imgLogo'>
+                <img src="https://1000marcas.net/wp-content/uploads/2019/11/McDonalds-logo.png" alt="img logo" />
+            </Heading>
             <Menu>
                 <MenuButton as={Button} rightIcon={<FaChevronDown />}>
                     Categorias

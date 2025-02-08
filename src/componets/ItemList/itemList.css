@@ -1,0 +1,6 @@
+.itemL {
+    text-align: center;
+    width: 84rem;
+    flex-wrap: wrap;
+    border: 2px solid rgb(0, 225, 255);
+}

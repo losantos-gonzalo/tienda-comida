@@ -1,0 +1,14 @@
+.cartitaP {
+    border: 2px solid #4400ff;
+    width: 15rem;
+    flex-direction: row;
+    margin: 1rem;
+
+    img {
+        width: 4m;
+    }
+
+    .catitaP-hijo {
+        border: 2px solid red;
+    }
+}
