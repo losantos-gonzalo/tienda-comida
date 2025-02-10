@@ -1,4 +1,4 @@
-import { Flex, Heading } from '@chakra-ui/react'
+import { Box, Flex, Heading } from '@chakra-ui/react'
 import React, { useEffect, useState } from 'react'
 import './ItemListContainer.css'
 import { getProducts } from '../../data/asyncMock';
@@ -15,7 +15,9 @@ const ItemListContainer = () => {
 
     return (
         <Flex className='cajita'>
-            <Heading>Tienda</Heading>
+            <Box className='tienda'>
+                <Heading >Tienda</Heading>
+            </Box>
             <ItemList products={products} />
         </Flex>
     )

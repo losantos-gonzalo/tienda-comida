@@ -1,15 +1,21 @@
 .cartitaP {
-    border: 2px solid #000000;
+    border: 2px solid #b89600;
     width: 15rem;
     flex-direction: row;
     margin: 1rem;
     border-radius: 5px;
     background-color: #dddddd;
+    padding: 0.5rem;
 
     img {
         width: 4m;
     }
 
-    /* .catitaP-hijo {
-    } */
+    .catitaP-hijo {
+
+        Button {
+            border: 2px solid #464400;
+            margin: 0.5rem;
+        }
+    }
 }

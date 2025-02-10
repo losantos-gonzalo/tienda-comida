@@ -1,7 +1,11 @@
 .cajita {
     flex-direction: column;
-    border: 2px solid red;
     width: 8rem;
     height: 4rem;
     margin-top: 1rem;
+    text-align: center;
+
+    .tienda {
+        width: 195vh;
+    }
 }

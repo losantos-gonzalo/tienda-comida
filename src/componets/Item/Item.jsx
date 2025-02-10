@@ -1,4 +1,4 @@
-import { Box, Flex } from '@chakra-ui/react'
+import { Box, Button, Flex } from '@chakra-ui/react'
 import React from 'react'
 import '../Item/item.css'
 
@@ -9,9 +9,10 @@ const Item = ({ nombre, precio, img, descripcion }) => {
 
             <Box className='catitaP-hijo'>
                 <p>{nombre}</p>
-                <p>{precio}</p>
                 <img src={img} />
+                <p>${precio}</p>
                 <p className='descripcion'> {descripcion}</p>
+                <Button>Ver mas</Button>
             </Box>
         </Flex>
     )
