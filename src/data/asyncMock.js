@@ -68,3 +68,13 @@ export const getProductsByCategory = (category) => {
         }, 2000);
     });
 };
+
+export const getProductById = (id) => {
+
+    return new Promise((res) => {
+        const productoFiltrado = productos.find((prod) => prod.id === parseInt(id));
+        setTimeout(() => {
+            res(productoFiltrado);
+        }, 200);
+    });
+};

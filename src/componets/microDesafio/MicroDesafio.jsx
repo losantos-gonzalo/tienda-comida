@@ -14,7 +14,6 @@ const MicroDesafioC4 = () => {
         }
         fetchData('Argentina')
     }, [])
-    console.log(data)
 
     return (
         <div>
@@ -24,4 +23,3 @@ const MicroDesafioC4 = () => {
 }
 
 export default MicroDesafioC4
-// Clase 4, 42m

@@ -1,8 +1,9 @@
 import { Box, Button, Flex } from '@chakra-ui/react'
 import React from 'react'
 import '../Item/item.css'
+import { Link } from 'react-router-dom'
 
-const Item = ({ nombre, precio, img, descripcion }) => {
+const Item = ({ nombre, precio, img, descripcion, id }) => {
 
     return (
         <Flex className='cartitaP'>
@@ -12,7 +13,11 @@ const Item = ({ nombre, precio, img, descripcion }) => {
                 <img src={img} />
                 <p>${precio}</p>
                 <p className='descripcion'> {descripcion}</p>
-                <Button>Ver mas</Button>
+                <Button>
+                    <Link to={`/producto/${id}`}>
+                        Ver detalle
+                    </Link>
+                </Button>
             </Box>
         </Flex>
     )

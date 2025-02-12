@@ -10,7 +10,7 @@ const ItemListContainer = () => {
     const [products, setProducts] = useState([]);
     const [loading, setLoading] = useState(true)
 
-    const { categoryId } = useParams()
+    const { categoryId } = useParams() 
 
     useEffect(() => {
         setLoading(true)
@@ -31,7 +31,7 @@ const ItemListContainer = () => {
             </Box>
             {
                 loading ?
-                    <MoonLoader  className='spiners'/>
+                    <MoonLoader className='spiners' />
                     :
                     <ItemList products={products} />
             }
