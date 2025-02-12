@@ -3,7 +3,7 @@ import React from 'react'
 import '../Item/item.css'
 import { Link } from 'react-router-dom'
 
-const Item = ({ nombre, precio, img, descripcion, id }) => {
+const Item = ({ nombre, precio, img, descripcion, id, stock }) => {
 
     return (
         <Flex className='cartitaP'>
@@ -12,6 +12,7 @@ const Item = ({ nombre, precio, img, descripcion, id }) => {
                 <p>{nombre}</p>
                 <img src={img} />
                 <p>${precio}</p>
+                <p>Stock {stock}</p>
                 <p className='descripcion'> {descripcion}</p>
                 <Button>
                     <Link to={`/producto/${id}`}>

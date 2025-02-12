@@ -1,24 +1,26 @@
-import { Button } from '@chakra-ui/react'
+import { Box, Button } from '@chakra-ui/react'
 import React, { useState } from 'react'
 
-// Item Count ESTADOS
-const ItemCount = () => {
-    const [count, setCount] = useState(1);
+const ItemCount = ({ stock, valorInicial, onAdd }) => {
+    const [count, setCount] = useState(valorInicial);
 
     const incrementar = () => {
-        setCount(count < 10 ? count + 1 : count)
+        count < stock && setCount(count + 1)
     }
 
     const decrementar = () => {
-        setCount(count > 0 ? count - 1 : count)
+        count > valorInicial && setCount(count - 1)
     }
 
     return (
-        <div>
+        <Box>
             <Button onClick={decrementar}>Decrementar</Button>
             {count}
             <Button onClick={incrementar}>Incrementar</Button>
-        </div>
+            <Button onClick={() => onAdd(count)}>
+                Agregar al arrito
+            </Button>
+        </Box>
     )
 }
 
