@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react'
-import { useParams } from 'react-router-dom'
+import { useNavigate, useParams } from 'react-router-dom'
 import { getProductById } from '../../data/asyncMock'
 import { MoonLoader } from 'react-spinners'
 import ItemDetail from '../ItemDetail/ItemDetail'
@@ -9,9 +9,17 @@ const ItemDetailContainer = () => {
     const [loading, setLoading] = useState(true)
     const { productId } = useParams()
 
+    const navigate = useNavigate()
+
     useEffect(() => {
         getProductById(productId)
-            .then((data) => setProducto(data))
+            .then((data) => {
+                if (!data) {
+                    navigate('/*')
+                } else {
+                    setProducto(data)
+                }
+            })
             .catch((error) => console.log(error))
             .finally(() => setLoading(false))
     }, [productId])
@@ -29,4 +37,5 @@ const ItemDetailContainer = () => {
 
 }
 
-export default ItemDetailContainer //1.35m
+export default ItemDetailContainer
+

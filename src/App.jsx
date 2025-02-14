@@ -3,6 +3,7 @@ import ItemListContainer from "./componets/ItemListContainer/ItemListContainer";
 import NavBar from "./componets/NavBar/NavBar";
 import { Box } from "@chakra-ui/react";
 import { BrowserRouter, Route, Router, Routes } from "react-router-dom";
+import PageNotFound from "./componets/PageNotFound/PageNotFound";
 
 function App() {
 
@@ -17,6 +18,7 @@ function App() {
           <Route path='/' element={<ItemListContainer />} />
           <Route path='/categoria/:categoryId' element={<ItemListContainer />} />
           <Route path='/producto/:productId' element={<ItemDetailContainer />} />
+          <Route path='*' element={<PageNotFound />} />
 
         </Routes>
       </BrowserRouter>
