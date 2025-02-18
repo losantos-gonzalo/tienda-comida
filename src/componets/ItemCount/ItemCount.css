@@ -1,0 +1,5 @@
+.itemCount {
+    flex-wrap: wrap;
+    width: 16.5rem;
+    border-radius: 5px;
+}

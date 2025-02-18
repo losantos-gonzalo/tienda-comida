@@ -13,9 +13,13 @@ const ItemCount = ({ stock, valorInicial, onAdd }) => {
     }
 
     return (
-        <Box>
+        <Box className='itemCount'>
+            
+            <Box className='count'>
+                {count}
+            </Box>
             <Button onClick={decrementar}>Decrementar</Button>
-            {count}
+
             <Button onClick={incrementar}>Incrementar</Button>
             <Button onClick={() => onAdd(count)}>
                 Agregar al arrito

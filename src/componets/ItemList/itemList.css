@@ -1,5 +1,5 @@
 .itemL {
+    border: 2px solid red;
     text-align: center;
-    width: 84rem;
     flex-wrap: wrap;
 }

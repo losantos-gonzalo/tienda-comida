@@ -4,27 +4,29 @@ import NavBar from "./componets/NavBar/NavBar";
 import { Box } from "@chakra-ui/react";
 import { BrowserRouter, Route, Router, Routes } from "react-router-dom";
 import PageNotFound from "./componets/PageNotFound/PageNotFound";
+import './componets/ItemDetail/ItemDetail.css'
+import './componets/ItemCount/ItemCount.css'
+import { CartContextProvider } from "./componets/context/CartContext";
 
 function App() {
 
   return (
     <Box>
-      <BrowserRouter>
-
-        <NavBar />
-
-        <Routes>
-
-          <Route path='/' element={<ItemListContainer />} />
-          <Route path='/categoria/:categoryId' element={<ItemListContainer />} />
-          <Route path='/producto/:productId' element={<ItemDetailContainer />} />
-          <Route path='*' element={<PageNotFound />} />
-
-        </Routes>
-      </BrowserRouter>
+      <CartContextProvider>
+        <BrowserRouter>
+          <NavBar />
+          <Routes>
+            <Route path='/' element={<ItemListContainer texto='soy un texto de contex' />} />
+            <Route path='/categoria/:categoryId' element={<ItemListContainer />} />
+            <Route path='/producto/:productId' element={<ItemDetailContainer />} />
+            <Route path='*' element={<PageNotFound />} />
+          </Routes>
+        </BrowserRouter>
+      </CartContextProvider>
     </Box>
   );
 }
 
 
 export default App;
+// clase 6 22m

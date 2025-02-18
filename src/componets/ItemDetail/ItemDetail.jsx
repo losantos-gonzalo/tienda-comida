@@ -10,7 +10,8 @@ const ItemDetail = ({ nombre, img, precio, stock }) => {
     }
 
     return (
-        <Box>
+        <Box className='ItemDetail'>
+            
             {nombre}
             <img src={img} alt="imgProducto" />
             precio ${precio}

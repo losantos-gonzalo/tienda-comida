@@ -1,0 +1,21 @@
+.ItemDetail {
+    border: 2px solid #eeff00;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+    margin-top: 5rem;
+    width: 17rem;
+    border-radius: 5px;
+
+    Button {
+        width: 8rem;
+        margin: 0.1rem;
+        margin-bottom: 0.5rem;
+    }
+
+    .count {
+        width: 1rem;
+        margin-left: auto;
+        margin-right: auto;
+    }
+}
