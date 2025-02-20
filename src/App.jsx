@@ -7,6 +7,7 @@ import PageNotFound from "./componets/PageNotFound/PageNotFound";
 import './componets/ItemDetail/ItemDetail.css'
 import './componets/ItemCount/ItemCount.css'
 import { CartContextProvider } from "./componets/context/CartContext";
+import Cart from "./componets/cart/Cart";
 
 function App() {
 
@@ -19,6 +20,8 @@ function App() {
             <Route path='/' element={<ItemListContainer texto='soy un texto de contex' />} />
             <Route path='/categoria/:categoryId' element={<ItemListContainer />} />
             <Route path='/producto/:productId' element={<ItemDetailContainer />} />
+            <Route path='/cart' element={<Cart />} />
+            
             <Route path='*' element={<PageNotFound />} />
           </Routes>
         </BrowserRouter>
@@ -29,4 +32,3 @@ function App() {
 
 
 export default App;
-// clase 6 22m
