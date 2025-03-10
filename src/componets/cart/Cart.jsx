@@ -1,6 +1,6 @@
-import { Flex } from '@chakra-ui/react'
-import React, { useContext } from 'react'
-import Context from '../context/CartContext'
+import { Button, Flex, Heading } from "@chakra-ui/react";
+import React, { useContext } from "react";
+import Context from "../context/CartContext";
 import {
     Table,
     Thead,
@@ -11,54 +11,75 @@ import {
     Td,
     TableCaption,
     TableContainer,
-} from '@chakra-ui/react'
-
+} from "@chakra-ui/react";
+import { RiDeleteBin5Line } from "react-icons/ri";
+import { Link } from "react-router-dom";
 
 const Cart = () => {
-    const { cart, removeItem, clearCart } = useContext(Context)
-    console.log('carrito', cart)
+    const { cart, removeItem, clearCart, getTotal } = useContext(Context);
 
-    return (
-        <Flex>
-            <TableContainer>
-                <Table variant='striped' colorScheme='teal'>
-                    <TableCaption>Imperial to metric conversion factors</TableCaption>
-                    <Thead>
-                        <Tr>
-                            <Th>Nombre</Th>
-                            <Th>Cantidad</Th>
-                            <Th>Precio</Th>
-                            <Th isNumeric>multiply by</Th>
-                        </Tr>
-                    </Thead>
-                    <Tbody>
-                        <Tr>
-                            <Td>inches</Td>
-                            <Td>millimetres (mm)</Td>
-                            <Td isNumeric>25.4</Td>
-                        </Tr>
-                        <Tr>
-                            <Td>feet</Td>
-                            <Td>centimetres (cm)</Td>
-                            <Td isNumeric>30.48</Td>
-                        </Tr>
-                        <Tr>
-                            <Td>yards</Td>
-                            <Td>metres (m)</Td>
-                            <Td isNumeric>0.91444</Td>
-                        </Tr>
-                    </Tbody>
-                    <Tfoot>
-                        <Tr>
-                            <Th>To convert</Th>
-                            <Th>into</Th>
-                            <Th isNumeric>multiply by</Th>
-                        </Tr>
-                    </Tfoot>
-                </Table>
-            </TableContainer>
-        </Flex>
-    )
-}
+    if (cart.length === 0) {
+        return (
+            <Flex direction={'column'} justify={'center'} align={'center'}>
+                <Heading>Todavia no agregaste productos al carrito</Heading>
+                <Link to='/'>Ver productos</Link>
+            </Flex>
+        )
+    } else {
 
-export default Cart
+        return (
+            <Flex>
+                <TableContainer>
+                    <Table variant="striped" colorScheme="teal">
+                        <Thead>
+                            <Tr>
+                                <Th>Nombre</Th>
+                                <Th>Cantidad</Th>
+                                <Th>Precio</Th>
+                                <Th>Subtotal</Th>
+                                <Th>Eliminar</Th>
+                            </Tr>
+                        </Thead>
+
+                        <Tbody>
+                            {cart.map((prod) => (
+                                <Tr key={prod.id}>
+                                    <Td>{prod.nombre}</Td>
+                                    <Td>{prod.quantity}</Td>
+                                    <Td>{prod.precio * prod.quantity}</Td>
+                                    <Td></Td>
+                                    <Td>
+                                        <Button onClick={() => removeItem(prod.id)}>
+                                            <RiDeleteBin5Line />
+                                        </Button>
+                                    </Td>
+                                </Tr>
+                            ))}
+                        </Tbody>
+                        <Tfoot>
+                            <Tr>
+                                <Th>
+                                    <Button onClick={() => clearCart()}>
+                                        Vaciar carrito
+                                    </Button>
+                                </Th>
+                                <Th>
+                                    <Heading>
+                                        {getTotal()}
+                                    </Heading>
+                                </Th>
+                                <Th>
+                                    <Link to=''>
+                                        Finalizar compra
+                                    </Link>
+                                </Th>
+                                <Th isNumeric>multiply by</Th>
+                            </Tr>
+                        </Tfoot>
+                    </Table>
+                </TableContainer>
+            </Flex>
+        );
+    };
+};
+export default Cart;

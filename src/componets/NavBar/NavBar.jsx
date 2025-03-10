@@ -44,8 +44,8 @@ const NavBar = () => {
                     </MenuItem>
                 </MenuList>
             </Menu>
-
-            <CartWidget />
+            
+                <CartWidget />
         </Flex>
     )
 }

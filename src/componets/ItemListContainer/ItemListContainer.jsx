@@ -1,42 +1,68 @@
-import { Box, Flex, Heading } from '@chakra-ui/react'
+import { Box, Flex } from '@chakra-ui/react'
 import React, { useEffect, useState } from 'react'
-import './ItemListContainer.css'
-import { getProducts, getProductsByCategory } from '../../data/asyncMock';
-import ItemList from '../ItemList/ItemList';
-import { useParams } from 'react-router-dom';
-import { MoonLoader } from 'react-spinners';
+import '../ItemListContainer/ItemListContainer.css'
+import { useParams } from 'react-router-dom'
+import { MoonLoader } from 'react-spinners'
+import ItemList from '../ItemList/ItemList'
+import { db } from '../../config/firebase'
+import { collection, getDocs, query, where } from 'firebase/firestore'
 
-const ItemListContainer = () => {
-    const [products, setProducts] = useState([]);
+const ItemListContainer = ({ title }) => {
+    const [products, setProducts] = useState([])
     const [loading, setLoading] = useState(true)
 
-    const { categoryId } = useParams()
+
+    const { categoryId } = useParams();
 
     useEffect(() => {
         setLoading(true)
-        const dataProductos = categoryId ? getProductsByCategory(categoryId) : getProducts()
+        const getData = async () => {
+            // obtenemos la referencia a la coleccion
+            const coleccion = collection(db, 'productos')
 
-        dataProductos
-            .then((data) => setProducts(data))
-            .catch((error) => console.log(error))
-            .finally(() => setLoading(false))
+            //creamos una referencia a la consulta
+            const queryRef = !categoryId ?
+                coleccion
+                :
+                // con query, le pasamos la coleccion y los datos a filtrar
+                query(coleccion, where('categoria', '==', categoryId))
+
+            // obtenemos los documenos
+            const response = await getDocs(queryRef)
+
+            //mapeamos los docs y creamos un nuevo objeto con los datos del producto y el id q definimos de manera automatica
+            const productos = response.docs.map((doc) => {
+                const newItem = {
+                    ...doc.data(),
+                    id: doc.id
+                }
+                return newItem
+            })
+            setProducts(productos)
+            setLoading(false)
+        }
+
+        getData()
     }, [categoryId])
 
 
     return (
-        <Flex className='cajita'>
-
-            <Box className='tienda'>
-                <Heading >Tienda</Heading>
+        <Flex className='productos'>
+            <Box className='title'>
+                {title}
             </Box>
+            <hr />
+
             {
                 loading ?
-                    <MoonLoader className='spiners' />
+                    <MoonLoader color="black" className='loading' />
                     :
                     <ItemList products={products} />
             }
         </Flex>
-    )
+    );
 }
 
-export default ItemListContainer
+export default ItemListContainer;
+
+
