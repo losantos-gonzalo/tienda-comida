@@ -35,5 +35,5 @@ export default App;
 // Run 2 45m v
 
 //tarde
-// Run 3 45m x
+// Run 3 45m v
 // Run 4 45m x

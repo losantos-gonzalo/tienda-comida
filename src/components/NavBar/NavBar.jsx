@@ -21,7 +21,7 @@ const NavBar = () => {
 
             <Heading className='imgLogo'>
                 <Link to='/'>
-                    <img src="https://1000marcas.net/wp-content/uploads/2019/11/McDonalds-logo.png" alt="img logo" />
+                    <img src="https://static.vecteezy.com/system/resources/thumbnails/049/116/757/small/mcdonalds-logo-transparent-background-free-png.png" alt="img logo" />
                 </Link>
             </Heading>
 
@@ -44,8 +44,8 @@ const NavBar = () => {
                     </MenuItem>
                 </MenuList>
             </Menu>
-            
-                <CartWidget />
+
+            <CartWidget />
         </Flex>
     )
 }
