@@ -1,8 +1,9 @@
 import React, { useEffect, useState } from 'react'
 import { useNavigate, useParams } from 'react-router-dom'
-import { getProductById } from '../../data/asyncMock'
 import { MoonLoader } from 'react-spinners'
 import ItemDetail from '../ItemDetail/ItemDetail'
+import { doc, getDoc } from 'firebase/firestore'
+import { db } from '../../config/firebase'
 
 const ItemDetailContainer = () => {
     const [producto, setProducto] = useState({})
@@ -12,16 +13,13 @@ const ItemDetailContainer = () => {
     const navigate = useNavigate()
 
     useEffect(() => {
-        getProductById(productId)
-            .then((data) => {
-                if (!data) {
-                    navigate('/*')
-                } else {
-                    setProducto(data)
-                }
+
+        const docRef = doc(db, "productos", productId);
+        getDoc(docRef)
+            .then((resp) => {
+                console.log(resp.id);
             })
-            .catch((error) => console.log(error))
-            .finally(() => setLoading(false))
+
     }, [productId])
 
     return (

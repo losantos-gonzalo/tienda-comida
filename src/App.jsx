@@ -1,13 +1,13 @@
-import ItemDetailContainer from "./componets/ItemDetailContainer/ItemDetailContainer";
-import ItemListContainer from "./componets/ItemListContainer/ItemListContainer";
-import NavBar from "./componets/NavBar/NavBar";
+import ItemDetailContainer from "./components/ItemDetailContainer/ItemDetailContainer";
+import ItemListContainer from "./components/ItemListContainer/ItemListContainer";
+import NavBar from "./components/NavBar/NavBar";
 import { Box } from "@chakra-ui/react";
-import { BrowserRouter, Route, Router, Routes } from "react-router-dom";
-import PageNotFound from "./componets/PageNotFound/PageNotFound";
-import "./componets/ItemDetail/ItemDetail.css";
-import "./componets/ItemCount/ItemCount.css";
-import { CartContextProvider } from "./componets/context/CartContext";
-import Cart from "./componets/cart/Cart";
+import { BrowserRouter, Route, Routes } from "react-router-dom";
+import PageNotFound from "./components/PageNotFound/PageNotFound";
+import "./components/ItemDetail/ItemDetail.css";
+import "./components/ItemCount/ItemCount.css";
+import { CartContextProvider } from "./components/context/CartContext";
+import Cart from "./components/cart/Cart";
 
 function App() {
   return (
@@ -30,3 +30,10 @@ function App() {
 }
 
 export default App;
+// manianan
+// Run 1 45m v
+// Run 2 45m v
+
+//tarde
+// Run 3 45m x
+// Run 4 45m x
