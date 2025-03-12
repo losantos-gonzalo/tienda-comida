@@ -6,9 +6,21 @@
 
     .imgLogo {
         width: 4rem;
+        margin-top: 1.5rem;
 
         img {
             width: 100%;
+        }
+    }
+
+    .caja__pedidos {
+        border: 2px solid red;
+        display: flex;
+
+        .caja__pedidos__links {
+            border: 2px solid red;
+            margin: 0.5rem;
+            width: 5rem;
         }
     }
 }

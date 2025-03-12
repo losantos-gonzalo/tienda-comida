@@ -1,15 +1,9 @@
 import React from 'react'
 import CartWidget from '../CartWidget/CartWidget'
 import {
-    Menu,
-    MenuButton,
-    MenuList,
-    MenuItem,
-    Button,
     Flex,
     Heading,
 } from '@chakra-ui/react'
-import { FaChevronDown } from "react-icons/fa";
 import '../NavBar/navbar.css'
 import { Link } from 'react-router-dom';
 
@@ -25,25 +19,22 @@ const NavBar = () => {
                 </Link>
             </Heading>
 
-            <Menu>
-                <MenuButton as={Button} rightIcon={<FaChevronDown />}>
-                    Categorias
-                </MenuButton>
+            <Flex className='caja__pedidos'>
+                <Link to='categoria/Papas' className='caja__pedidos__links'>
+                    <img src="https://cache-mcd-middleware.mcdonaldscupones.com/media/image/product$kKX4MZKT/200/200/original?country=ar" alt="img-papas" />
+                    Papas fritas
+                </Link>
+                <Link to='categoria/Hamburguesas' className='caja__pedidos__links'>
+                    <img src="https://cache-mcd-middleware.mcdonaldscupones.com/media/image/product$kKXdw3Ku/200/200/original?country=ar" alt="img-hamburguesas" />
+                    Hamburguesas
+                </Link>
+                <Link to='categoria/Bebidas' className='caja__pedidos__links'>
+                    <img src="https://cache-mcd-middleware.mcdonaldscupones.com/media/image/product$kcX2292z/200/200/original?country=ar" alt="img-bebidas" />
+                    Bebidas
+                </Link>
+            </Flex>
 
-                <MenuList>
-                    <MenuItem>
-                        <Link to='categoria/Papas'>Papas fritas</Link>
-                    </MenuItem>
 
-                    <MenuItem>
-                        <Link to='categoria/Bebidas'>Bebidas</Link>
-                    </MenuItem>
-
-                    <MenuItem>
-                        <Link to='categoria/Hamburguesas'>Hamburguesas</Link>
-                    </MenuItem>
-                </MenuList>
-            </Menu>
 
             <CartWidget />
         </Flex>
