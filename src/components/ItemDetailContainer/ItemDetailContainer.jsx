@@ -18,7 +18,10 @@ const ItemDetailContainer = () => {
                 const docSnap = await getDoc(docRef);
 
                 if (docSnap.exists()) {
-                    setProducto({ ...docSnap.data(), id: docSnap.id });
+                    setProducto({
+                        ...docSnap.data(),
+                        id: docSnap.id
+                    });
                 } else {
                     navigate('/not-found');
                 }

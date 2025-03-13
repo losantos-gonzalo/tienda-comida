@@ -20,16 +20,22 @@ const NavBar = () => {
             </Heading>
 
             <Flex className='caja__pedidos'>
+
                 <Link to='categoria/Papas' className='caja__pedidos__links'>
-                    <img src="https://cache-mcd-middleware.mcdonaldscupones.com/media/image/product$kKX4MZKT/200/200/original?country=ar" alt="img-papas" />
+                    <img src="https://cache-mcd-middleware.mcdonaldscupones.com/media/image/product$kKX4MZKT/200/200/original?country=ar"
+                        className='imgLinks' alt="img-papas" />
                     Papas fritas
                 </Link>
+
                 <Link to='categoria/Hamburguesas' className='caja__pedidos__links'>
-                    <img src="https://cache-mcd-middleware.mcdonaldscupones.com/media/image/product$kKXdw3Ku/200/200/original?country=ar" alt="img-hamburguesas" />
+                    <img src="https://cache-mcd-middleware.mcdonaldscupones.com/media/image/product$kKXdw3Ku/200/200/original?country=ar"
+                        className='imgLinks' alt="img-hamburguesas" />
                     Hamburguesas
                 </Link>
+
                 <Link to='categoria/Bebidas' className='caja__pedidos__links'>
-                    <img src="https://cache-mcd-middleware.mcdonaldscupones.com/media/image/product$kcX2292z/200/200/original?country=ar" alt="img-bebidas" />
+                    <img src="https://cache-mcd-middleware.mcdonaldscupones.com/media/image/product$kcX2292z/200/200/original?country=ar"
+                        className='imgLinks' alt="img-bebidas" />
                     Bebidas
                 </Link>
             </Flex>

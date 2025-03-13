@@ -8,6 +8,8 @@ import "./components/ItemDetail/ItemDetail.css";
 import "./components/ItemCount/ItemCount.css";
 import { CartContextProvider } from "./components/context/CartContext";
 import Cart from "./components/cart/Cart";
+import Checkout from "./components/checkout/Checkout";
+import './components/Checkout/Checkout.css'
 
 function App() {
   return (
@@ -20,7 +22,7 @@ function App() {
             <Route path="/categoria/:categoryId" element={<ItemListContainer />} />
             <Route path="/producto/:productId" element={<ItemDetailContainer />} />
             <Route path="/cart" element={<Cart />} />
-
+            <Route path="/checkout" element={<Checkout />} />
             <Route path="*" element={<PageNotFound />} />
           </Routes>
         </BrowserRouter>
@@ -35,5 +37,5 @@ export default App;
 // Run 2 45m v
 
 //tarde
-// Run 3 45m v
+// Run 3 45m x
 // Run 4 45m x

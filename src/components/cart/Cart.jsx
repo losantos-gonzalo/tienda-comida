@@ -69,7 +69,7 @@ const Cart = () => {
                                     </Heading>
                                 </Th>
                                 <Th>
-                                    <Link to=''>
+                                    <Link to='/checkout'>
                                         Finalizar compra
                                     </Link>
                                 </Th>

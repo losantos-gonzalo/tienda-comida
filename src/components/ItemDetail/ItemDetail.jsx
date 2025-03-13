@@ -14,6 +14,7 @@ const ItemDetail = ({ nombre, img, precio, stock, id }) => {
             id,
             nombre,
             precio,
+            img
         };
         addItem(item, quantity);
         toast(`Agregaste ${quantity} unidad/des`);
