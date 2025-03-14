@@ -35,7 +35,3 @@ export default App;
 // manianan
 // Run 1 45m v
 // Run 2 45m v
-
-//tarde
-// Run 3 45m x
-// Run 4 45m x

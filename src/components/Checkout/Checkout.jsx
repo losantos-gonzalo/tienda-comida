@@ -34,6 +34,7 @@ const Checkout = () => {
         }))
     }
 
+
     const getOrder = async () => {
         const coleccion = collection(db, 'orders')
 
@@ -45,11 +46,12 @@ const Checkout = () => {
             }
 
             const orderRef = await addDoc(coleccion, order)
-            console.log(orderRef)
+            console.log(orderRef.id)
         } catch (error) {
             console.log(error)
         }
     }
+
 
     return (
         <Flex className='user__Box'>
@@ -65,6 +67,7 @@ const Checkout = () => {
 
                 <FormLabel>Email</FormLabel>
                 <Input type='email'
+                    name='email'
                     placeholder='JuanCarlos@hotmail.com'
                     onChange={updateUser}
                 />
@@ -72,13 +75,15 @@ const Checkout = () => {
                 <FormLabel>Repetir Email</FormLabel>
                 <Input
                     type='email'
+                    name='repeatedEmail'
                     placeholder='JuanCarlos@hotmail.com'
                     onChange={updateUser}
                 />
 
                 <FormLabel>Telefono</FormLabel>
                 <Input
-                    type='email'
+                    type='tel'
+                    name='phone'
                     placeholder='11 22334455'
                     onChange={updateUser}
                 />
@@ -92,3 +97,5 @@ const Checkout = () => {
 }
 
 export default Checkout
+// class 1.31
+
