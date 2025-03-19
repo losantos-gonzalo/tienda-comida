@@ -32,6 +32,3 @@ function App() {
 }
 
 export default App;
-// manianan
-// Run 1 45m v
-// Run 2 45m v
