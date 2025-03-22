@@ -1,5 +1,6 @@
 .itemL {
-    border: 2px solid red;
+    border: 2px solid #000000;
     text-align: center;
     flex-wrap: wrap;
+    padding-left: 15vh;
 }

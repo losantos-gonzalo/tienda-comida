@@ -8,7 +8,7 @@ import {
     Flex,
     Button
 } from '@chakra-ui/react';
-import { addDoc, collection } from 'firebase/firestore';
+import { addDoc, collection, getDoc, updateDoc } from 'firebase/firestore';
 import { db } from '../../config/firebase';
 import Swal from 'sweetalert2';
 import { useNavigate } from 'react-router-dom';
@@ -55,6 +55,20 @@ const Checkout = () => {
         if (!validateForm()) return;
 
         try {
+
+            for (const item of cart) {
+                const docRef = doc(db, 'producto', item.id)
+                const productDoc = getDoc(docRef)
+
+                const currentStock = await productDoc.data().stock
+
+                if (currentStock = item.quantity) {
+                    await updateDoc(docRef, {
+                        stock: currentStock - item.quantity
+                    })
+                }
+            }
+
             setLoading(true);
             const orderRef = await addDoc(collection(db, 'orders'), {
                 buyer: user,
@@ -113,4 +127,5 @@ const Checkout = () => {
 
 export default Checkout;
 
+//12m...
 

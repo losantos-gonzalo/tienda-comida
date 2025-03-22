@@ -29,7 +29,7 @@ const NavBar = () => {
 
                 <Link to='categoria/Hamburguesas' className='caja__pedidos__links'>
                     <img src="https://cache-mcd-middleware.mcdonaldscupones.com/media/image/product$kKXdw3Ku/200/200/original?country=ar"
-                        className='imgLinks' alt="img-hamburguesas" />
+                        className='imgLinks hamburguesa' alt="img-hamburguesas" />
                     Hamburguesas
                 </Link>
 
