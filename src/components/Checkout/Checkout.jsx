@@ -8,7 +8,7 @@ import {
     Flex,
     Button
 } from '@chakra-ui/react';
-import { addDoc, collection, getDoc, updateDoc } from 'firebase/firestore';
+import { addDoc, collection, doc, getDoc, updateDoc } from 'firebase/firestore';
 import { db } from '../../config/firebase';
 import Swal from 'sweetalert2';
 import { useNavigate } from 'react-router-dom';
@@ -54,22 +54,63 @@ const Checkout = () => {
     const getOrder = async () => {
         if (!validateForm()) return;
 
+        if (cart.length === 0) {
+            Swal.fire({
+                title: 'Carrito vacío',
+                text: 'No puedes generar la orden con el carrito vacío',
+                icon: 'error',
+                confirmButtonText: 'Aceptar'
+            }).then(() => navigate('/'));
+            return;
+        }
+
         try {
+            let stockInsuficiente = false;
 
             for (const item of cart) {
-                const docRef = doc(db, 'producto', item.id)
-                const productDoc = getDoc(docRef)
+                const docRef = doc(db, 'productos', item.id);
+                const productDoc = await getDoc(docRef);
 
-                const currentStock = await productDoc.data().stock
+                if (!productDoc.exists()) {
+                    console.error(`El producto con ID ${item.id} no existe.`);
+                    continue;
+                }
 
-                if (currentStock = item.quantity) {
-                    await updateDoc(docRef, {
-                        stock: currentStock - item.quantity
-                    })
+                const productData = productDoc.data();
+                if (!productData || productData.stock === undefined) {
+                    console.error(`El producto ${item.id} no tiene stock definido.`);
+                    continue;
+                }
+
+                const currentStock = productData.stock;
+
+                if (currentStock < item.quantity) {
+                    stockInsuficiente = true;
+                    Swal.fire({
+                        title: 'Stock insuficiente',
+                        text: `No hay suficiente stock del producto ${item.nombre}`,
+                        icon: 'error',
+                        confirmButtonText: 'Aceptar'
+                    });
+                    console.log(`Stock insuficiente para ${item.nombre}`);
+                    break;  // Se detiene el proceso
                 }
             }
 
+            if (stockInsuficiente) return;
+
+            // Si todo está bien, actualiza el stock y genera la orden
             setLoading(true);
+            for (const item of cart) {
+                const docRef = doc(db, 'productos', item.id);
+                const productDoc = await getDoc(docRef);
+
+                if (productDoc.exists()) {
+                    const currentStock = productDoc.data().stock;
+                    await updateDoc(docRef, { stock: currentStock - item.quantity });
+                }
+            }
+
             const orderRef = await addDoc(collection(db, 'orders'), {
                 buyer: user,
                 cart,
@@ -86,7 +127,7 @@ const Checkout = () => {
                 navigate('/');
             });
         } catch (error) {
-            console.log(error);
+            console.error('Error en getOrder:', error);
         } finally {
             setLoading(false);
         }
@@ -94,27 +135,27 @@ const Checkout = () => {
 
     return (
         <Flex className="user__Box" direction="column" gap="4">
-            <FormControl isInvalid={!!error.name}>
+            <FormControl isInvalid={!!error.name} mb={4}>
                 <FormLabel>Nombre</FormLabel>
-                <Input type="text" name="name" placeholder="Juan Carlos" onChange={updateUser} />
+                <Input type="text" name="name" value={user.name} placeholder="Juan Carlos" onChange={updateUser} />
                 <FormErrorMessage>{error.name}</FormErrorMessage>
             </FormControl>
 
-            <FormControl isInvalid={!!error.email}>
+            <FormControl isInvalid={!!error.email} mb={4}>
                 <FormLabel>Email</FormLabel>
-                <Input type="email" name="email" placeholder="juan@email.com" onChange={updateUser} />
+                <Input type="email" name="email" value={user.email} placeholder="juan@email.com" onChange={updateUser} />
                 <FormErrorMessage>{error.email}</FormErrorMessage>
             </FormControl>
 
-            <FormControl isInvalid={!!error.repeatedEmail}>
+            <FormControl isInvalid={!!error.repeatedEmail} mb={4}>
                 <FormLabel>Repetir Email</FormLabel>
-                <Input type="email" name="repeatedEmail" placeholder="juan@email.com" onChange={updateUser} />
+                <Input type="email" name="repeatedEmail" value={user.repeatedEmail} placeholder="juan@email.com" onChange={updateUser} />
                 <FormErrorMessage>{error.repeatedEmail}</FormErrorMessage>
             </FormControl>
 
-            <FormControl isInvalid={!!error.phone}>
+            <FormControl isInvalid={!!error.phone} mb={4}>
                 <FormLabel>Teléfono</FormLabel>
-                <Input type="tel" name="phone" placeholder="1122334455" onChange={updateUser} />
+                <Input type="tel" name="phone" value={user.phone} placeholder="1122334455" onChange={updateUser} />
                 <FormErrorMessage>{error.phone}</FormErrorMessage>
             </FormControl>
 
@@ -127,5 +168,4 @@ const Checkout = () => {
 
 export default Checkout;
 
-//12m...
 
