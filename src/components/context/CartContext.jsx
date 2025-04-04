@@ -53,7 +53,23 @@ export const CartContextProvider = ({ children }) => {
             }
             return prod
         })
-        setCart(updateCart) //54m clas8
+        setCart(updateCart)
+    }
+
+    const incrementarItem = (id) => {
+        const updateCart = cart.map((prod) => {
+            if (prod.id === id) {
+                const newQuantity = Math.min(prod.quantity + 1, prod.stock)
+                return { ...prod, quantity: newQuantity }
+            }
+            return prod
+        })
+        setCart(updateCart)
+    }
+
+    const currentQuantity = (id) => {
+        const prod = cart.find((item) => item.id === id)
+        return prod ? prod.quantity : 0
     }
 
     console.log(cart);
@@ -67,7 +83,10 @@ export const CartContextProvider = ({ children }) => {
                 clearCart,
                 removeItem,
                 getTotal,
-                getQuantity
+                getQuantity,
+                decrementarItem,
+                incrementarItem,
+                currentQuantity
             }}
         >
             {children}

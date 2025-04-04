@@ -5,16 +5,18 @@ import { ToastContainer, toast } from "react-toastify";
 import Context from "../context/CartContext";
 import { Link } from "react-router-dom";
 
-const ItemDetail = ({ nombre, img, precio, stock, id }) => {
+const ItemDetail = ({ nombre, img, precio, stock, id, currentQuantity }) => {
     const [cantidad, setCantidad] = useState(0);
     const { addItem } = useContext(Context);
+    const maxAvailable = stock - currentQuantity;
 
     const onAdd = (quantity) => {
         const item = {
             id,
             nombre,
             precio,
-            img
+            img,
+            stock
         };
         addItem(item, quantity);
         toast(`Agregaste ${quantity} unidad/des`);
@@ -27,7 +29,13 @@ const ItemDetail = ({ nombre, img, precio, stock, id }) => {
             <img src={img} alt="imgProducto" />
             precio ${precio}
             <p>Stock {stock}</p>
-            <ItemCount stock={stock} valorInicial={1} onAdd={onAdd} />
+            <p>Cantidad actual en el carrito {currentQuantity}</p>
+            <ItemCount
+                maxAvailable={maxAvailable}
+                stock={stock}
+                valorInicial={1}
+                onAdd={onAdd}
+            />
             <Button>
                 <Link to="/cart">Ir al Carrito</Link>
             </Button>

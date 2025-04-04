@@ -1,7 +1,7 @@
 import { Box, Button } from '@chakra-ui/react'
 import React, { useState } from 'react'
 
-const ItemCount = ({ stock, valorInicial, onAdd }) => {
+const ItemCount = ({ stock, valorInicial, onAdd, maxAvailable }) => {
     const [count, setCount] = useState(valorInicial);
 
     const incrementar = () => {
@@ -9,12 +9,12 @@ const ItemCount = ({ stock, valorInicial, onAdd }) => {
     }
 
     const decrementar = () => {
-        count > valorInicial && setCount(count - 1)
+        count > maxAvailable && setCount(count - 1)
     }
 
     return (
         <Box className='itemCount'>
-            
+
             <Box className='count'>
                 {count}
             </Box>
