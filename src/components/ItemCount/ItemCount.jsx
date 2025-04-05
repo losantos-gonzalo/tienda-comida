@@ -5,7 +5,7 @@ const ItemCount = ({ stock, valorInicial, onAdd, maxAvailable }) => {
     const [count, setCount] = useState(valorInicial);
 
     const incrementar = () => {
-        count < stock && setCount(count + 1)
+        count < maxAvailable && setCount(count + 1)
     }
 
     const decrementar = () => {

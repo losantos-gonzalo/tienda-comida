@@ -45,3 +45,4 @@ const ItemDetail = ({ nombre, img, precio, stock, id, currentQuantity }) => {
 };
 
 export default ItemDetail;
+// 1hs 11m clas8
