@@ -9,7 +9,7 @@ import "./components/ItemCount/ItemCount.css";
 import { CartContextProvider } from "./components/context/CartContext";
 import Cart from "./components/cart/Cart";
 import Checkout from "./components/Checkout/Checkout";
-import './components/Checkout/Checkout.css'
+import './components/Checkout/checkout.css'
 
 function App() {
   return (
