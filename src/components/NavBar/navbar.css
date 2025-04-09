@@ -1,32 +1,32 @@
 .navbar {
-    border: 2px solid #000000;
-    justify-content: space-between;
-    padding: 2rem;
-    background-color: #ddb;
+  border: 2px solid #000000;
+  justify-content: space-between;
+  padding: 2rem;
+  background-color: #ddb;
 
-    .imgLogo {
-        width: 4rem;
-        margin-top: 1.5rem;
+  .imgLogo {
+    width: 4rem;
+    margin-top: 1.5rem;
 
-        img {
-            width: 100%;
-        }
+    img {
+      width: 100%;
+    }
+  }
+
+  .caja__pedidos {
+    display: flex;
+    text-align: center;
+
+    .caja__pedidos__links {
+      margin: 0.5rem;
+      max-width: 7rem;
     }
 
-    .caja__pedidos {
-        display: flex;
-        text-align: center;
-
-        .caja__pedidos__links {
-            margin: 0.5rem;
-            max-width: 7rem;
-        }
-
-        .imgLinks {
-            width: 80%;
-            margin-left: auto;
-            margin-right: auto;
-            background-color: red;
-        }
+    .imgLinks {
+      width: 80%;
+      margin-left: auto;
+      margin-right: auto;
+      background-color: red;
     }
+  }
 }

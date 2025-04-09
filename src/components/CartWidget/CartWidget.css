@@ -1,5 +1,12 @@
 .car {
-    border: 2px solid #000000;
-    width: 2rem;
-    padding: 0.5rem;
+  border: 2px solid #000000;
+  width: 4rem;
+  padding: 0.5rem;
+}
+
+@media (max-width: 360px) and (max-height: 740px) {
+  .car {
+    border: 2px solid red;
+    display: flex;
+  }
 }

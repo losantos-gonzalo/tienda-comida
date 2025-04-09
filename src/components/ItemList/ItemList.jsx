@@ -10,7 +10,10 @@ const ItemList = ({ products }) => {
             {
                 products.map((prod) => (
 
-                    <Box key={prod.id}>
+                    <Box
+                    className='itemL-item'
+                        key={prod.id}
+                    >
                         <Item {...prod} />
                     </Box>
                 ))
