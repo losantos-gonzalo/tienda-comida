@@ -8,7 +8,7 @@ import "./components/ItemDetail/ItemDetail.css";
 import "./components/ItemCount/ItemCount.css";
 import { CartContextProvider } from "./components/context/CartContext";
 import Cart from "./components/cart/Cart";
-import Checkout from "./components/checkout/Checkout";
+import Checkout from "./components/Checkout/Checkout";
 import './components/Checkout/Checkout.css'
 
 function App() {
