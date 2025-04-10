@@ -44,8 +44,17 @@ export const CartContextProvider = ({ children }) => {
     const getQuantity = () => { //numeral q tiene el carrito (logo)
         return cart.reduce((acc, item) => acc + item.quantity, 0)
     }
-
+    //modificion de cantidades
     const decrementarItem = (id) => {
+        const producto = cart.find((prod) => prod.id === id);
+        if (!producto) {
+            // Lanzar un error o mostrar un mensaje de error al usuario
+            throw new Error(`Producto no encontrado en el carrito`);
+        }
+        if (producto.quantity <= 1) {
+            // Lanzar un error o mostrar un mensaje de error al usuario
+            throw new Error(`No se puede decrementar la cantidad a menos de 1`);
+        }
         const updateCart = cart.map((prod) => {
             if (prod.id === id) {
                 const newQuantity = Math.max(prod.quantity - 1, 1)
@@ -55,6 +64,7 @@ export const CartContextProvider = ({ children }) => {
         })
         setCart(updateCart)
     }
+
 
     const incrementarItem = (id) => {
         const updateCart = cart.map((prod) => {

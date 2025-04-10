@@ -48,7 +48,9 @@ const Cart = () => {
                                     <Td>{prod.nombre}</Td>
                                     <Td>{prod.quantity}</Td>
                                     <Td>
+
                                         <Button onClick={() => decrementarItem(prod.id)}>-</Button>
+                                        
                                         {prod.quantity}
                                         <Button onClick={() => incrementarItem(prod.id, prod.stock)}>+</Button>
                                     </Td>
