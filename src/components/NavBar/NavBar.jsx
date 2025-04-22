@@ -17,6 +17,8 @@ const NavBar = () => {
                 <Link to='/'>
                     <img src="https://static.vecteezy.com/system/resources/thumbnails/049/116/757/small/mcdonalds-logo-transparent-background-free-png.png" alt="img logo" />
                 </Link>
+
+                <CartWidget />
             </Heading>
 
             <Flex className='caja__pedidos'>
@@ -40,9 +42,6 @@ const NavBar = () => {
                 </Link>
             </Flex>
 
-
-
-            <CartWidget />
         </Flex>
     )
 }
