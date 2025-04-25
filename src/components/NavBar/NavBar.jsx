@@ -1,6 +1,7 @@
 import React from 'react'
 import CartWidget from '../CartWidget/CartWidget'
 import {
+    Box,
     Flex,
     Heading,
 } from '@chakra-ui/react'
@@ -13,13 +14,16 @@ const NavBar = () => {
 
         <Flex className='navbar'>
 
-            <Heading className='imgLogo'>
-                <Link to='/'>
-                    <img src="https://static.vecteezy.com/system/resources/thumbnails/049/116/757/small/mcdonalds-logo-transparent-background-free-png.png" alt="img logo" />
-                </Link>
+            <Box className='navbar__logo'>
+                <Heading className='imgLogo'>
+                    <Link to='/'>
+                        <img src="https://static.vecteezy.com/system/resources/thumbnails/049/116/757/small/mcdonalds-logo-transparent-background-free-png.png" alt="img logo" />
+                    </Link>
 
-                <CartWidget />
-            </Heading>
+
+                </Heading>
+                <CartWidget  className='Carrito'/>
+            </Box>
 
             <Flex className='caja__pedidos'>
 

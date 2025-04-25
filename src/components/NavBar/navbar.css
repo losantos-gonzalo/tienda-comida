@@ -1,4 +1,6 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap");
 .navbar {
+  font-family: "Poppins", sans-serif;
   border: 2px solid #000000;
   justify-content: space-between;
   padding: 2rem;
@@ -36,30 +38,37 @@
     align-items: center;
     padding: 1rem;
 
-    .caja__pedidos {
+    .navbar__logo {
+      display: flex;
+      justify-content: space-between;
       align-items: center;
+      width: 100%;
+    }
+  }
+
+  .caja__pedidos {
+    align-items: center;
+    margin: 0.5rem;
+
+    .caja__pedidos__links {
       margin: 0.5rem;
-
-      .caja__pedidos__links {
-        margin: 0.5rem;
-        max-width: 7rem;
-      }
-
-      .imgLinks {
-        width: 80%;
-        margin-left: auto;
-        margin-right: auto;
-      }
+      max-width: 7rem;
     }
 
-    .imgLogo {
-      width: 6.5rem;
-      margin-top: 1.5rem;
-      display: flex;
+    .imgLinks {
+      width: 80%;
+      margin-left: auto;
+      margin-right: auto;
+    }
+  }
 
-      img {
-        width: 100%;
-      }
+  .imgLogo {
+    width: 6.5rem;
+    margin-top: 1.5rem;
+    display: flex;
+
+    img {
+      width: 100%;
     }
   }
 }

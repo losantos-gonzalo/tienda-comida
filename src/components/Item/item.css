@@ -1,4 +1,6 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap");
 .cartitaP {
+  font-family: 'Poppins', sans-serif;
   border: 2px solid #b89600;
   width: 15rem;
   flex-direction: row;
@@ -21,7 +23,14 @@
 
 @media (max-width: 768px) {
   .cartitaP {
-    border: 2px solid black;
+    border: 2px solid white;
     width: 10.5rem;
+    border-radius: 5px;
+    background-color: white;
+
+    Button {
+      background-color: #960000;
+      color: white;
+    }
   }
 }
