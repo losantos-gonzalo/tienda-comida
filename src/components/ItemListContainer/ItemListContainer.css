@@ -1,15 +1,4 @@
-.cajita {
-    flex-direction: column;
-    height: 4rem;
-    margin-top: 1rem;
-    text-align: center;
-
-
-
-    .spiners {
-        border: 2px solid rgb(0, 0, 0);
-        margin-left: auto;
-        margin-right: auto;
-        margin-top: 20rem;
-    }
+.productos {
+  height: 106vh;
+  margin: 0.00000001rem;
 }
