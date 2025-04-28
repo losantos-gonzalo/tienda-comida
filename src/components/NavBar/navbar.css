@@ -37,7 +37,7 @@
     flex-direction: column;
     align-items: center;
     padding: 1rem;
-    background-color: #ff9800;
+    background-color: #FF0000;
 
     .navbar__logo {
       display: flex;
