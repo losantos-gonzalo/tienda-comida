@@ -22,7 +22,7 @@ const NavBar = () => {
 
 
                 </Heading>
-                <CartWidget  className='Carrito'/>
+                <CartWidget className='Carrito' />
             </Box>
 
             <Flex className='caja__pedidos'>
@@ -33,7 +33,7 @@ const NavBar = () => {
                     Papas fritas
                 </Link>
 
-                <Link to='categoria/Hamburguesas' className='caja__pedidos__links'>
+                <Link to='categoria/Hamburguesas' className='caja__pedidos__links hamburguesas'>
                     <img src="https://cache-mcd-middleware.mcdonaldscupones.com/media/image/product$kKXdw3Ku/200/200/original?country=ar"
                         className='imgLinks hamburguesa' alt="img-hamburguesas" />
                     Hamburguesas
