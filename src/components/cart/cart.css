@@ -1,0 +1,19 @@
+.noItems {
+  border: 2px solid red;
+  text-align: center;
+  margin-top: 1rem;
+  padding: 1rem;
+  background-color: #ddb;
+
+  .noItems__title {
+    font-size: 1.5rem;
+    font-weight: bold;
+  }
+
+  .noItems__link {
+    border: 2px solid #000000;
+    padding: 0.5rem;
+    border-radius: 5px;
+    margin-top: 1rem;
+  }
+}

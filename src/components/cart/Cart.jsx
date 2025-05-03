@@ -14,15 +14,19 @@ import {
 } from "@chakra-ui/react";
 import { RiDeleteBin5Line } from "react-icons/ri";
 import { Link } from "react-router-dom";
+import './cart.css'
 
 const Cart = () => {
     const { cart, removeItem, clearCart, getTotal, incrementarItem, decrementarItem, } = useContext(Context);
 
     if (cart.length === 0) {
         return (
-            <Flex direction={'column'} justify={'center'} align={'center'}>
-                <Heading>Todavia no agregaste productos al carrito</Heading>
-                <Link to='/'>Ver productos</Link>
+            <Flex direction={'column'} justify={'center'} align={'center'}
+            className="noItems">
+                <Heading className="noItems__title">Todavia no agregaste productos al carrito</Heading>
+                <Link to='/'
+                className="noItems__link"
+                >Ver productos</Link>
             </Flex>
         )
     } else {
