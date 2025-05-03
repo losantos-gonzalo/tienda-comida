@@ -24,25 +24,29 @@ const ItemDetail = ({ nombre, img, precio, stock, id, currentQuantity }) => {
     };
 
     return (
+
         <Box className="ItemDetail">
-            {nombre}
-            <img src={img} alt="imgProducto" />
-            precio ${precio}
-            <p>Stock {stock}</p>
-            <p>Cantidad actual en el carrito {currentQuantity}</p>
-            <ItemCount
-                maxAvailable={maxAvailable}
-                stock={stock}
-                valorInicial={1}
-                onAdd={onAdd}
-            />
-            <Button>
-                <Link to="/cart">Ir al Carrito</Link>
-            </Button>
-            <ToastContainer />
+
+            <h2>Detalle del producto</h2>
+            <Box className="ItemDetail__container">
+                {nombre}
+                <img src={img} alt="imgProducto" />
+                precio ${precio}
+                <p>Stock {stock}</p>
+                <p>Cantidad actual en el carrito {currentQuantity}</p>
+                <ItemCount
+                    maxAvailable={maxAvailable}
+                    stock={stock}
+                    valorInicial={1}
+                    onAdd={onAdd}
+                />
+                <Button>
+                    <Link to="/cart">Ir al Carrito</Link>
+                </Button>
+                <ToastContainer />
+            </Box>
         </Box>
     );
 };
 
 export default ItemDetail;
-// 1hs 11m clas8

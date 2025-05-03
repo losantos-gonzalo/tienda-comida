@@ -53,11 +53,13 @@
     max-width: 40rem;
 
     .caja__pedidos__links {
-      border: 2px solid black;
+      border: 2px solid red;
+      margin-left: 1rem;
+      margin-right: 1rem;
+      width: 5rem;
     }
 
     .hamburguesas {
-      border: 2px solid red;
       width: 5rem;
     }
 
