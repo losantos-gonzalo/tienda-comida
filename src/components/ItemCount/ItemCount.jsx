@@ -9,7 +9,7 @@ const ItemCount = ({ stock, valorInicial, onAdd, maxAvailable }) => {
     }
 
     const decrementar = () => {
-        count > maxAvailable && setCount(count - 1)
+        count > 1 && setCount(count - 1)
     }
 
     return (

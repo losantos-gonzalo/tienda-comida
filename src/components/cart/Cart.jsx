@@ -22,10 +22,10 @@ const Cart = () => {
     if (cart.length === 0) {
         return (
             <Flex direction={'column'} justify={'center'} align={'center'}
-            className="noItems">
+                className="noItems">
                 <Heading className="noItems__title">Todavia no agregaste productos al carrito</Heading>
                 <Link to='/'
-                className="noItems__link"
+                    className="noItems__link"
                 >Ver productos</Link>
             </Flex>
         )
@@ -54,7 +54,7 @@ const Cart = () => {
                                     <Td>
                                         <Button onClick={() => decrementarItem(prod.id)}>-</Button>
                                         {prod.quantity}
-                                        <Button onClick={() => incrementarItem(prod.id, prod.stock)}>+</Button>
+                                        <Button onClick={() => incrementarItem(prod.id)}>+</Button>
                                     </Td>
                                     <Td>{prod.precio * prod.quantity}</Td>
                                     <Td></Td>

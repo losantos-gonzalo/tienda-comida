@@ -46,15 +46,18 @@ export const CartContextProvider = ({ children }) => {
     }
 
     const decrementarItem = (id) => {
-        const updateCart = cart.map((prod) => {
-            if (prod.id === id) {
-                const newQuantity = Math.max(prod.quantity - 1, 1);
-                return { ...prod, quantity: newQuantity };
-            }
-            return prod;
-        })
-        setCart(updateCart);
+        const updatedCart = cart
+            .map((prod) => {
+                if (prod.id === id) {
+                    return { ...prod, quantity: prod.quantity - 1 };
+                }
+                return prod;
+            })
+            .filter((prod) => prod.quantity > 0);
+        
+        setCart(updatedCart);
     }
+    
 
     const incrementarItem = (id) => {
         const updateCart = cart.map((prod) => {
