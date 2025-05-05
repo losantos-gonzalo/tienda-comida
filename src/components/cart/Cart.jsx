@@ -1,4 +1,4 @@
-import { Button, Flex, Heading } from "@chakra-ui/react";
+import { Box, Button, Flex, Heading } from "@chakra-ui/react";
 import React, { useContext } from "react";
 import Context from "../context/CartContext";
 import {
@@ -32,14 +32,16 @@ const Cart = () => {
     } else {
 
         return (
-            <Flex>
-                <TableContainer>
+            <Flex className="cart" direction="column" align="center" justify="center">
+
+                <TableContainer className="cart__table">
+
                     <Table variant="striped" colorScheme="teal">
                         <Thead>
                             <Tr>
                                 <Th>Nombre</Th>
                                 <Th>Cantidad</Th>
-                                <Th></Th>
+                                <Th>Acciones</Th>
                                 <Th>Precio</Th>
                                 <Th>Subtotal</Th>
                                 <Th>Eliminar</Th>
@@ -52,14 +54,13 @@ const Cart = () => {
                                     <Td>{prod.nombre}</Td>
                                     <Td>{prod.quantity}</Td>
                                     <Td>
-                                        <Button onClick={() => decrementarItem(prod.id)}>-</Button>
-                                        {prod.quantity}
-                                        <Button onClick={() => incrementarItem(prod.id)}>+</Button>
+                                        <Button size="sm" onClick={() => decrementarItem(prod.id)}>-</Button>
+                                        <Button size="sm" onClick={() => incrementarItem(prod.id)}>+</Button>
                                     </Td>
-                                    <Td>{prod.precio * prod.quantity}</Td>
-                                    <Td></Td>
+                                    <Td>${prod.precio}</Td>
+                                    <Td>${prod.precio * prod.quantity}</Td>
                                     <Td>
-                                        <Button onClick={() => removeItem(prod.id)}>
+                                        <Button size="sm" colorScheme="red" onClick={() => removeItem(prod.id)}>
                                             <RiDeleteBin5Line />
                                         </Button>
                                     </Td>
@@ -68,11 +69,12 @@ const Cart = () => {
                         </Tbody>
                         <Tfoot>
                             <Tr>
-                                <Th>
-                                    <Button onClick={() => clearCart()}>
-                                        Vaciar carrito
-                                    </Button>
-                                </Th>
+                                <Th colSpan={4} textAlign="right">Total:</Th>
+                                <Th>${getTotal()}</Th>
+                                <Th></Th>
+                            </Tr>
+                            <Tr>
+                                <Th colSpan={3}></Th>
                                 <Th>
                                     <Heading>
                                         {getTotal()}
@@ -87,6 +89,33 @@ const Cart = () => {
                         </Tfoot>
                     </Table>
                 </TableContainer>
+
+                {/* Versión mobile */}
+                <Box className="cart-mobile">
+                    {cart.map((prod) => (
+
+                        <Box className="cart-mobile-card" key={prod.id}>
+                            <p><strong>Producto:</strong> {prod.nombre}</p>
+                            <p><strong>Precio:</strong> ${prod.precio}</p>
+                            <p><strong>Subtotal:</strong> ${prod.precio * prod.quantity}</p>
+                            <p><strong>Cantidad:</strong> {prod.quantity}</p>
+                            <img src={prod.img} alt="imgProducto" />
+
+                            <div className="actions">
+                                <Button size="sm" onClick={() => decrementarItem(prod.id)}>-</Button>
+                                <span>{prod.quantity}</span>
+                                <Button size="sm" onClick={() => incrementarItem(prod.id)}>+</Button>
+                                <Button size="sm" colorScheme="red" onClick={() => removeItem(prod.id)}>
+                                    <RiDeleteBin5Line />
+                                </Button>
+                            </div>
+                        </Box>
+                    ))}
+                    <p className="cart__total">Total: ${getTotal()}</p>
+                    <Link to="/checkout" className="cart__checkout">Finalizar compra</Link>
+                    <Button className="cart__clear" onClick={clearCart}>Vaciar carrito</Button>
+                </Box>
+
             </Flex>
         );
     };

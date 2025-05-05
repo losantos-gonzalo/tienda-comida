@@ -1,19 +1,103 @@
+/* 🟥 Carrito vacío */
 .noItems {
   border: 2px solid red;
   text-align: center;
   margin-top: 1rem;
   padding: 1rem;
   background-color: #ddb;
+  border-radius: 8px;
+}
 
-  .noItems__title {
-    font-size: 1.5rem;
-    font-weight: bold;
+.noItems__title {
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+
+.noItems__link {
+  border: 2px solid #000000;
+  padding: 0.5rem;
+  border-radius: 5px;
+  margin-top: 1rem;
+  text-decoration: none;
+  display: inline-block;
+  color: #000;
+}
+
+/* 🛒 Estilos de carrito */
+.cart {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 1rem;
+}
+
+/* Mostrar tabla solo en pantallas grandes */
+.cart__table {
+  width: 100%;
+  max-width: 900px;
+  margin-top: 1rem;
+}
+
+.cart-mobile {
+  display: none;
+}
+
+/* 📱 Responsive: mostrar tarjetas y ocultar tabla */
+@media (max-width: 768px) {
+  .cart__table {
+    display: none;
+    border: 2px solid red;
+    display: none !important;
   }
 
-  .noItems__link {
-    border: 2px solid #000000;
-    padding: 0.5rem;
-    border-radius: 5px;
+  .cart-mobile {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    width: 100%;
+    padding: 1rem;
+
+    img {
+      width: 70%;
+      margin: 1rem;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .cart-mobile-card {
+      border: 1px solid #ccc;
+      border-radius: 8px;
+      padding: 1rem;
+      background-color: #fff;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+
+      p {
+        margin: 0.3rem 0;
+      }
+
+      .actions {
+        display: flex;
+        gap: 0.5rem;
+        margin: 0.5rem 0;
+      }
+    }
+  }
+
+  .cart__total {
+    font-size: 1.2rem;
+    font-weight: bold;
     margin-top: 1rem;
+    text-align: center;
+  }
+
+  .cart__checkout {
+    margin-top: 1rem;
+    background-color: teal;
+    color: white;
+    padding: 0.5rem 1rem;
+    border-radius: 5px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
   }
 }
