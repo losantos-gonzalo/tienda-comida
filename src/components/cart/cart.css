@@ -1,6 +1,5 @@
 /* 🟥 Carrito vacío */
 .noItems {
-  border: 2px solid red;
   text-align: center;
   margin-top: 1rem;
   padding: 1rem;
@@ -46,7 +45,6 @@
 @media (max-width: 768px) {
   .cart__table {
     display: none;
-    border: 2px solid red;
     display: none !important;
   }
 

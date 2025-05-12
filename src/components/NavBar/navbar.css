@@ -49,11 +49,9 @@
   .caja__pedidos {
     align-items: center;
     margin: 3rem;
-    border: 2px solid red;
     max-width: 40rem;
 
     .caja__pedidos__links {
-      border: 2px solid red;
       margin-left: 1rem;
       margin-right: 1rem;
       width: 5rem;

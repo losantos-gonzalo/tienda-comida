@@ -4,6 +4,7 @@ import { IoCartOutline } from "react-icons/io5";
 import { Flex } from '@chakra-ui/react';
 import Context from '../context/CartContext';
 import { Link } from 'react-router-dom';
+import Carrito from './carrito';
 
 const CartWidget = () => {
     const { getQuantity } = useContext(Context)
@@ -11,8 +12,12 @@ const CartWidget = () => {
     return (
 
         <Flex className='car' justify={'center'} >
-            <Link to='/cart'><IoCartOutline /></Link>
-            <span>
+
+            <Link className='car__link' to='/cart'>
+                < Carrito />
+            </Link>
+
+            <span className='numerito'>
                 {
                     getQuantity() > 0 && getQuantity()
                 }
