@@ -4,7 +4,7 @@ import { IoCartOutline } from "react-icons/io5";
 import { Flex } from '@chakra-ui/react';
 import Context from '../context/CartContext';
 import { Link } from 'react-router-dom';
-import Carrito from './carrito';
+import Carrito from './Carrito';
 
 const CartWidget = () => {
     const { getQuantity } = useContext(Context)
