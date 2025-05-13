@@ -1,6 +1,5 @@
 import React, { useContext } from 'react'
 import './CartWidget.css'
-import { IoCartOutline } from "react-icons/io5";
 import { Flex } from '@chakra-ui/react';
 import Context from '../context/CartContext';
 import { Link } from 'react-router-dom';

@@ -30,19 +30,19 @@ const NavBar = () => {
                 <Link to='categoria/Papas' className='caja__pedidos__links'>
                     <img src="https://cache-mcd-middleware.mcdonaldscupones.com/media/image/product$kKX4MZKT/200/200/original?country=ar"
                         className='imgLinks' alt="img-papas" />
-                    Papas fritas
+                    <p className='text'>Papas fritas</p>
                 </Link>
 
                 <Link to='categoria/Hamburguesas' className='caja__pedidos__links hamburguesas'>
                     <img src="https://cache-mcd-middleware.mcdonaldscupones.com/media/image/product$kKXdw3Ku/200/200/original?country=ar"
                         className='imgLinks hamburguesa' alt="img-hamburguesas" />
-                    Hamburguesas
+                    <p className='text'>Hamburguesas</p>
                 </Link>
 
                 <Link to='categoria/Bebidas' className='caja__pedidos__links'>
                     <img src="https://cache-mcd-middleware.mcdonaldscupones.com/media/image/product$kcX2292z/200/200/original?country=ar"
                         className='imgLinks' alt="img-bebidas" />
-                    Bebidas
+                    <p className='text'>Bebidas</p>
                 </Link>
             </Flex>
 
