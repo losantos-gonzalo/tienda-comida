@@ -31,6 +31,12 @@
     }
   }
 }
+/* Moto g60s */
+@media (max-width: 480px) {
+  .navbar {
+    background-color: red;
+  }
+}
 
 @media (max-width: 768px) {
   .navbar {
