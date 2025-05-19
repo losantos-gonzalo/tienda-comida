@@ -38,5 +38,24 @@
 @media (max-width: 396px) {
   .cartitaP {
     width: 10rem;
+
+    .catitaP-hijo {
+      .btn {
+        border: 1px solid #000000;
+        background-color: white;
+        color: #000000;
+        transition: background-color 0.3s ease, color 0.3s ease;
+
+        &:hover {
+          background-color: blue;
+          color: white;
+        }
+
+        &:active {
+          background-color: #000000;
+          color: white;
+        }
+      }
+    }
   }
 }

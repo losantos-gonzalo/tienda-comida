@@ -1,5 +1,35 @@
 .itemCount {
-    flex-wrap: wrap;
-    width: 16.5rem;
-    border-radius: 5px;
+  flex-wrap: wrap;
+  width: 16.5rem;
+  border-radius: 5px;
+}
+
+@media (max-width: 768px) {
+  .itemCount {
+    border: 2px solid blue;
+    display: flex;
+
+    .count {
+      border: 2px solid black;
+      padding: 0.7rem;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .itemCount-btns {
+      border: 2px solid red;
+      display: flex;
+      width: 16rem;
+      margin-left: auto;
+      margin-right: auto;
+    }
+  }
+
+  .itemCount-btn {
+    border: 2px solid #65a300;
+
+    &:active {
+      background-color: #ddb;
+    }
+  }
 }

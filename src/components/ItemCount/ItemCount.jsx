@@ -15,13 +15,15 @@ const ItemCount = ({ stock, valorInicial, onAdd, maxAvailable }) => {
     return (
         <Box className='itemCount'>
 
-            <Box className='count'>
-                {count}
-            </Box>
-            <Button onClick={decrementar}>Decrementar</Button>
+            <Box className='itemCount-btns'>
+                <Button onClick={decrementar}>Decrementar</Button>
 
-            <Button onClick={incrementar}>Incrementar</Button>
-            <Button onClick={() => onAdd(count)}>
+                <Box className='count'>{count}</Box>
+
+                <Button onClick={incrementar}>Incrementar</Button>
+            </Box>
+
+            <Button onClick={() => onAdd(count)} className='itemCount-btn'>
                 Agregar al arrito
             </Button>
         </Box>

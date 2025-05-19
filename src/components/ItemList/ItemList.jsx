@@ -1,4 +1,3 @@
-import React from 'react'
 import Item from '../Item/Item'
 import { Box, Flex } from '@chakra-ui/react'
 import '../ItemList/itemList.css'
@@ -11,7 +10,7 @@ const ItemList = ({ products }) => {
                 products.map((prod) => (
 
                     <Box
-                    className='itemL-item'
+                        className='itemL-item'
                         key={prod.id}
                     >
                         <Item {...prod} />
