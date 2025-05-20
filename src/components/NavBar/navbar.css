@@ -31,14 +31,8 @@
     }
   }
 }
-/* Moto g60s */
-@media (max-width: 480px) {
-  .navbar {
-    background-color: red;
-  }
-}
 
-@media (max-width: 768px) {
+@media (width <= 750px) {
   .navbar {
     flex-direction: column;
     align-items: center;
@@ -97,5 +91,12 @@
     img {
       width: 100%;
     }
+  }
+}
+
+@media (prefers-color-scheme: dark) {
+  .navbar {
+    background-color: #000;
+    color: white;
   }
 }

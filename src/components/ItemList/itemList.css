@@ -3,10 +3,34 @@
   text-align: center;
   flex-wrap: wrap;
   height: 120vh;
-  border: 2px solid black;
+  border: 2px solid #ddb;
 
   .itemL-item {
     margin-left: auto;
     margin-right: auto;
+  }
+}
+
+@media (width <= 750px) {
+  .itemL {
+    height: 120vh;
+  }
+}
+
+@media (width <= 600px) {
+  .itemL {
+    height: 140vh;
+  }
+}
+
+@media (width <= 405px) {
+  .itemL {
+    height: 280vh;
+  }
+}
+
+@media (prefers-color-scheme: dark) {
+  .itemL {
+    background-color: black;
   }
 }

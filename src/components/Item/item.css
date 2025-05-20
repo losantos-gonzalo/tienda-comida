@@ -21,7 +21,7 @@
   }
 }
 
-@media (max-width: 768px) {
+@media (width <= 750px) {
   .cartitaP {
     border: 2px solid white;
     width: 10.5rem;
@@ -32,11 +32,6 @@
       background-color: #960000;
       color: white;
     }
-  }
-}
-
-@media (max-width: 396px) {
-  .cartitaP {
     width: 10rem;
 
     .catitaP-hijo {
