@@ -27,12 +27,13 @@
     width: 10.5rem;
     border-radius: 5px;
     background-color: white;
+    width: 10rem;
+    max-height: 17.5rem;
 
     Button {
       background-color: #960000;
       color: white;
     }
-    width: 10rem;
 
     .catitaP-hijo {
       .btn {
